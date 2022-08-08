@@ -1,0 +1,25 @@
+#!/bin/bash
+##################################################
+# The script to copy all images to one directory #
+##################################################
+for i in `ls `;
+
+do
+
+if test -d "$i"
+  then
+
+cd $i;
+time=`echo $i|cut -c 14-19` # get the time of obs
+
+for j in `ls *.png`; # list png images
+do
+n=`echo $j|cut -c 1-7` # get the scan direction RA/DEC
+# change the directory path below
+cp "$j" /home/user/Documents/ContinuumObsTianMa/img/"$n$time".png;
+done
+
+cd ..
+
+fi
+done

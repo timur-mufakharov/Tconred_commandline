@@ -1,0 +1,18 @@
+#!/bin/bash
+########################################################
+# Run the data reduction script in all directories     #
+########################################################
+
+for i in `ls `;
+
+do
+
+if test -d "$i"
+  then
+
+cd $i;
+python ../gauss_fitting.py;
+cd ..
+
+fi
+done
